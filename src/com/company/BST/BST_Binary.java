@@ -1,5 +1,8 @@
 package com.company.BST;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BST_Binary {
     // B2, BST root node
     Node root;
@@ -103,6 +106,39 @@ public class BST_Binary {
         return search_Recursive(root.right, key);
     }
 
+    //B8.2 Tạo phương thức gọi
+    public void printPostOrder() {
+        printOrder(root);
+    }
+
+    // B8.1
+    public void printOrder(Node node) {
+        if (node == null) {
+            return;
+        }
+        printOrder(node.left);
+        System.out.println(node.key);
+        printOrder(node.right);
+    }
+
+
+    // B9.
+    public void printBreathFirst() {
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            Node temp = queue.poll();
+            System.out.println(temp.key);
+            if (temp.left != null) {
+                queue.add(temp.left);
+            }
+            if (temp.right != null) {
+                queue.add(temp.right);
+            }
+        }
+
+    }
+
     // B1 Tạo class Node
     class Node {
         int key;
@@ -113,4 +149,6 @@ public class BST_Binary {
             left = right = null;
         }
     }
+
+
 }

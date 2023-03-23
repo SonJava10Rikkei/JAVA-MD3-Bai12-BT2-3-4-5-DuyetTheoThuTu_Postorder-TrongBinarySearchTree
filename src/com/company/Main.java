@@ -9,17 +9,20 @@ public class Main {
         /* BST tree example
               45
            /     \
-          10      90
-         /  \    /
-        7   12  50   */
+          10      50
+         /  \       \
+        7   12       90 hong hong  */
         //insert data into BST
         bst.insert(45);
         bst.insert(10);
         bst.insert(7);
+        bst.insert(12);
         bst.insert(50);
         bst.insert(90);
-        bst.insert(20);
-        bst.insert(55);
+
+        bst.printPostOrder();
+        System.out.println("***************");
+        bst.printBreathFirst();
         //print the BST
         System.out.println("BST Được tạo bằng dữ liệu đầu vào (Trái-phải):");
         bst.inorder();
@@ -38,9 +41,9 @@ public class Main {
         bst.deleteKey(45);
         bst.inorder();
         //search a key in the BST
-        boolean ret_val = bst.search (50);
-        System.out.println("\nKey 50 found in BST:" + ret_val );
-        ret_val = bst.search (12);
-        System.out.println("\nKey 12 found in BST:" + ret_val );
+        boolean ret_val = bst.search(50);
+        System.out.println("\nKey 50 found in BST:" + ret_val);
+        ret_val = bst.search(12);
+        System.out.println("\nKey 12 found in BST:" + ret_val);
     }
 }
